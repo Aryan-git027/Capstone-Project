@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS Salesman(
   city TEXT,
   Comission TEXT
 );
-INSRET TWO Salesman(Salesman_id,name,city,Comission)
+INSERT INTO Salesman(Salesman_id,name,city,Comission)
 VALUES
   ("5001","James Hoog","New York", "0.15"),
   ("5002","Nail Knite","Paris","0.13"),
@@ -18,7 +18,7 @@ VALUES
     grade TEXT,
     Salesman_id TEXT
 );
-INSERT TWO Customer(customer_id, cust_name,city,grade,Salesman_id)
+INSERT INTO Customer(customer_id, cust_name,city,grade,Salesman_id)
 VALUES
   ("3002","nick rimando","new york","100","5001"),
   ("3007","brad davis","new york","200","5001"),
@@ -86,3 +86,9 @@ FROM Orders
 JOIN Salesman ON Orders.Salesman_id = Salesman.Salesman_id
 JOIN Customer ON Orders.customer_id = Customer.customer_id
 WHERE Customer.grade >= 200;
+
+-- Orders on a specific date
+SELECT *
+FROM Customer
+JOIN Orders ON Customer.customer_id = Orders.customer_id
+WHERE Orders.ord_date = '2012-10-05';
